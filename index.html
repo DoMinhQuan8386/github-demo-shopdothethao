@@ -1,338 +1,46 @@
-```html
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Đỗ Minh Quân</title>
+    <title>Flex & Grid Battle</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background: #f4f7fb;
-            color: #222;
-        }
-
-        /* Header: Phần đầu trang, chứa tên và thanh điều hướng */
-        header {
-            background: #111827;
-            color: white;
-            padding: 20px 8%;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        /* Nav: Thanh điều hướng giúp người dùng di chuyển giữa các phần */
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 25px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            color: #60a5fa;
-        }
-
-        /* Main: Chứa toàn bộ nội dung chính của Portfolio */
-        main {
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        /* Section: Chứa một nhóm nội dung có cùng chủ đề */
-        section {
-            min-height: 400px;
-            padding: 80px 8%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        /* Section Trang chủ: Giới thiệu tổng quan */
-        #home {
-            min-height: 600px;
-            background: linear-gradient(135deg, #dbeafe, #eff6ff);
-            text-align: center;
-            align-items: center;
-        }
-
-        #home h1 {
-            font-size: 50px;
-            margin-bottom: 15px;
-        }
-
-        #home h2 {
-            color: #2563eb;
-            margin-bottom: 20px;
-        }
-
-        #home p {
-            max-width: 700px;
-            font-size: 18px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 32px;
-            margin-bottom: 40px;
-            color: #111827;
-        }
-
-        /* Thông tin cá nhân */
-        .about-info {
-            max-width: 800px;
-            margin: auto;
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-        }
-
-        .about-info p {
-            font-size: 18px;
-            margin: 10px 0;
-        }
-
-        .about-info strong {
-            color: #2563eb;
-        }
-
-        /* Skills: Hiển thị danh sách các kỹ năng */
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .skill {
-            background: white;
-            padding: 25px;
-            width: 160px;
-            text-align: center;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            font-weight: bold;
-        }
-
-        /* Projects: Hiển thị các dự án đã thực hiện */
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .project {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            transition: 0.3s;
-        }
-
-        .project:hover {
-            transform: translateY(-5px);
-        }
-
-        .project h3 {
-            color: #2563eb;
-            margin-bottom: 12px;
-        }
-
-        /* Section Liên hệ */
-        #contact {
-            text-align: center;
-            background: #e0f2fe;
-        }
-
-        #contact p {
-            margin: 8px 0;
-            font-size: 18px;
-        }
-
-        /* Footer: Phần cuối trang, chứa thông tin bản quyền */
-        footer {
-            background: #111827;
-            color: white;
-            text-align: center;
-            padding: 25px;
-        }
-
-        /* Responsive: Điều chỉnh giao diện trên điện thoại */
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 15px;
-            }
-
-            #home h1 {
-                font-size: 38px;
-            }
-
-            .projects {
-                grid-template-columns: 1fr;
-            }
-
-            section {
-                padding: 60px 6%;
-            }
-        }
-    </style>
+    <!-- Kết nối file CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- Header: Phần đầu trang, chứa tên/logo và thanh điều hướng -->
-    <header>
-        <div class="header-container">
-            <div class="logo">ĐỖ MINH QUÂN</div>
-
-            <!-- Nav: Thanh điều hướng giúp người dùng di chuyển giữa các section -->
-            <nav>
-                <ul>
-                    <li><a href="#home">Trang chủ</a></li>
-                    <li><a href="#about">Giới thiệu</a></li>
-                    <li><a href="#skills">Kỹ năng</a></li>
-                    <li><a href="#projects">Dự án</a></li>
-                    <li><a href="#contact">Liên hệ</a></li>
-                </ul>
-            </nav>
+    <!-- BÀI 1: FLEXBOX -->
+    <section class="flex-section">
+        <div class="container">
+            <h1>FLEXBOX</h1>
+            <p>Căn giữa theo chiều ngang và chiều dọc</p>
         </div>
-    </header>
+    </section>
 
-    <!-- Main: Chứa toàn bộ nội dung chính của Portfolio -->
-    <main>
 
-        <!-- Section: Phần giới thiệu tổng quan và lời chào -->
-        <section id="home">
-            <h1>Xin chào, tôi là Đỗ Minh Quân</h1>
-            <h2>Sinh viên Công nghệ thông tin</h2>
-            <p>
-                Chào mừng bạn đến với Portfolio cá nhân của tôi.
-                Tôi đang học tập và phát triển các kỹ năng về lập trình Web,
-                cơ sở dữ liệu và công nghệ phần mềm.
-            </p>
-        </section>
+    <!-- BÀI 2: CSS GRID -->
+    <section class="grid-section">
+        <h2>CSS GRID - 3 CỘT</h2>
 
-        <!-- Section: Phần giới thiệu thông tin cá nhân -->
-        <section id="about">
-            <h2 class="section-title">Giới thiệu</h2>
-
-            <div class="about-info">
-                <p><strong>Họ và tên:</strong> Đỗ Minh Quân</p>
-                <p><strong>Ngày sinh:</strong> 15/04/2007</p>
-                <p><strong>Lớp:</strong> 25CT111</p>
-                <p><strong>Trường:</strong> Trường Đại học Lạc Hồng</p>
-                <p>
-                    <strong>Giới thiệu:</strong>
-                    Tôi là sinh viên ngành Công nghệ thông tin, yêu thích
-                    công nghệ, lập trình và thiết kế website. Tôi luôn cố gắng
-                    học hỏi và nâng cao kiến thức để phát triển bản thân
-                    trong lĩnh vực Công nghệ thông tin.
-                </p>
+        <div class="grid-container">
+            <div class="column">
+                <h3>Cột 1</h3>
+                <p>Nội dung cột 1</p>
             </div>
-        </section>
 
-        <!-- Section: Phần trình bày các kỹ năng đang học -->
-        <section id="skills">
-            <h2 class="section-title">Kỹ năng</h2>
-
-            <div class="skills">
-                <div class="skill">HTML5</div>
-                <div class="skill">CSS3</div>
-                <div class="skill">Python</div>
-                <div class="skill">SQL</div>
-                <div class="skill">Git</div>
-                <div class="skill">GitHub</div>
+            <div class="column">
+                <h3>Cột 2</h3>
+                <p>Nội dung cột 2</p>
             </div>
-        </section>
 
-        <!-- Section: Phần giới thiệu các dự án và bài tập -->
-        <section id="projects">
-            <h2 class="section-title">Dự án</h2>
-
-            <div class="projects">
-
-                <article class="project">
-                    <h3>Website Portfolio</h3>
-                    <p>
-                        Xây dựng website Portfolio cá nhân bằng HTML5
-                        Semantic để giới thiệu bản thân, kỹ năng và dự án.
-                    </p>
-                </article>
-
-                <article class="project">
-                    <h3>Website bán đồ thể thao</h3>
-                    <p>
-                        Thiết kế giao diện website bán các sản phẩm thể thao
-                        với bố cục trực quan và dễ sử dụng.
-                    </p>
-                </article>
-
-                <article class="project">
-                    <h3>Quản lý sân bóng</h3>
-                    <p>
-                        Xây dựng ý tưởng website hỗ trợ quản lý sân bóng,
-                        thông tin sân và các hoạt động đặt sân.
-                    </p>
-                </article>
-
+            <div class="column">
+                <h3>Cột 3</h3>
+                <p>Nội dung cột 3</p>
             </div>
-        </section>
-
-        <!-- Section: Phần cung cấp thông tin liên hệ -->
-        <section id="contact">
-            <h2 class="section-title">Liên hệ</h2>
-
-            <p><strong>Họ và tên:</strong> Đỗ Minh Quân</p>
-            <p><strong>Lớp:</strong> 25CT111</p>
-            <p><strong>Trường:</strong> Trường Đại học Lạc Hồng</p>
-            <p>Tôi luôn sẵn sàng học hỏi và kết nối với mọi người.</p>
-        </section>
-
-    </main>
-
-    <!-- Footer: Phần cuối trang, chứa thông tin bản quyền -->
-    <footer>
-        <p>&copy; 2026 Đỗ Minh Quân. All rights reserved.</p>
-        <p>Cảm ơn bạn đã ghé thăm Portfolio của tôi!</p>
-    </footer>
+        </div>
+    </section>
 
 </body>
 </html>
-```
